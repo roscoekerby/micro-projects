@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html class = "no-js" lang = "">
+    <head>
+        <!-- Setup -->
+        <meta charset = "utf-8">
+        <meta http-equiv = "x-ua-compatible" content = "ie = edge">
+        <title>Course Achievements</title>
+        <meta name = "description" content = "">
+        <meta name = "viewpoint" content = "width = device-width", initial-scale = 1">
+     
+        <!-- Linking CSS -->
+        <link rel = "stylesheet" type = "text/css" href = "site.css">
+
+        <!-- Linking JS -->
+        <script src = "site.js"></script>
+    </head>
+
+    <body>
+
+        <h1>Course Achievements</h1>
+
+        <head>
+        
+          <style>
+            html { overflow: hidden;}
+            
+            body { font-family: Verdana,Arial,Helvetica; }
+            
+            #list { 
+              display: none;            
+              background-color: #eee;               
+              height: 240px;
+              width: 100%; 
+              overflow-y: auto;
+            }
+          </style>          
+          
+          <!-- JQuery AJAX source -->
+          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+                
+          <!-- This script initialises the possible achievements -->
+          <script>
+            $(document).ready(function()
+            {
+                Achievements.initialise('myGame');
+            });            
+            
+            function toggleList()
+            {
+                $('#list').toggle('slow');
+                $('#list').html(Achievements.list);
+            }
+          </script>
+        </head>
+        <body>
+            
+          <div id="content">           
+      
+            <!-- Functional Buttons -->
+            <input name="showAchievements" type="button" value="List All Achievements" onclick="toggleList();"><br />
+            <input name="lockAchievements" type="button" value="Lock All Achievements" onclick="Achievements.lockAllAchievements();"><br />    
+            <input name="unlockAchievements" type="button" value="Unlock All Achievements" onclick="Achievements.unlockAllAchievements();"><br />     
+            <input name="countAchievements" type="button" value="Count Total Available Achievements" onclick="Achievements.getCount();"><br />
+            <input name="countLockedAchievements" type="button" value="Count Locked Achievements" onclick="Achievements.getLockedCount();"><br />
+            <input name="countUnlockedAchievements" type="button" value="Count Unlocked Achievements" onclick="Achievements.getUnlockedCount();"><br />
+            <input name="resetAchievements" type="button" value="Reset All Achievements" onclick="Achievements.fullreset();"><br />
+            
+            <div id="list">  
+              
+            </div>
+          </div>
+
+          <h1>Add Achievement</h1>
+          <input type="text" placeholder="Add Achievement" id="add" name="events">
+          <button id="add" onclick="addAchievement()">Add</button>
+
+          <h1>Remove Achievement</h1>
+          <input type="text" placeholder="Remove Achievement" id="remove" name="events">
+          <button id="remove" onclick="removeAchievement()">Remove</button>
+
+          <ul id="sec">
+          </ul>
+                  
+          <div id="status" class="achievement"><span class="title">Achievement Unlocked!</span><br/><span id="text">Some text</span></div>
+        </body>     
+    </body>
+</html>
