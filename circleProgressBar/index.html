@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class = "no-js" lang = "">
+    <head>
+        <!-- Setup -->
+        <meta charset = "utf-8">
+        <meta http-equiv = "x-ua-compatible" content = "ie = edge">
+        <title>Course Progress Bar</title>
+        <meta name = "description" content = "">
+        <meta name = "viewpoint" content = "width = device-width", initial-scale = 1">
+
+        <!-- Linking CSS -->
+        <link rel = "stylesheet" type = "text/css" href = "site.css">
+
+        <!-- Linking JS -->
+        <script src = "site.js"></script>
+    </head>
+
+    <body>
+        <h1>CSC1015F Progress Indicator</h1>
+
+        <!-- Circular Progress Bar  -->
+        <div class="canvas-wrap">
+            <canvas id="canvas" width="300" height="300"></canvas>
+            <span id="procent"></span>
+          </div>          
+        
+        <!-- Button to edit Percentage -->
+        <button class = "percentageButton" onclick = "updatePercentage()">Update Course Progress Percentage</button>
+    </body>
+</html>
